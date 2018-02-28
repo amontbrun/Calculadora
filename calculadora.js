@@ -2,7 +2,7 @@ window.onload = function () {
     pantalla = document.getElementById("textoPantalla");
     pantallaHist = document.getElementById("pantallaHistoria");
     //document.onkeydown = teclado;
-    //Andres Montbrun
+    //Andres Montbrun F
 
 }
 
