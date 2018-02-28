@@ -1,5 +1,6 @@
 window.onload = function () {
     pantalla = document.getElementById("textoPantalla");
+    pantallaHist = document.getElementById("pantallaHistoria");
     //document.onkeydown = teclado;
     //Andres Montbrun
 
@@ -44,6 +45,7 @@ function operar(s) {
     ni = x; // poner en espera el 1er numero para poder escribir el nuevo numero
     op = s; // guardamos el tipo de operacion
     xi = 1; //inicializamos la pantalla
+    pantallaHist.innerHTML = ni; // mostramos en pantalla dicho numero
 }
 
 function igualar() {
@@ -56,6 +58,7 @@ function igualar() {
         x = sol; // guardamos la solucion de la operacion
         op = "no" // ya no hay operacione spendientes
         xi = 1; // me permite reinicial la pantalla
+        pantallaHist.innerHTML = "0"; // mostramos en pantalla dicho numero
     }
 }
 
@@ -93,7 +96,8 @@ function borradoParcial() {
 }
 
 function borradoTotal() {
-    pantalla.innerHTML = 0;
+    pantalla.innerHTML = "0";
+    pantallaHist.innerHTML = "0"; // mostramos en pantalla dicho numero
     x = "0";
     coma = 0;
     ni = 0;
