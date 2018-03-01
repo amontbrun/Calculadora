@@ -1,8 +1,8 @@
 window.onload = function () {
     pantalla = document.getElementById("textoPantalla");
     pantallaHist = document.getElementById("pantallaHistoria");
-    //document.onkeydown = teclado;
-    //Andres Montbrun F
+    document.onkeydown = teclado;
+    //Andres Montbrun Flores
 
 }
 
@@ -68,6 +68,22 @@ function porcent() {
     igualar(); //resolvemos y mostramos el resultado
     xi = 1; //reiniciar pantalla
 }
+
+function opuesto() {
+    nx = Number(x);
+    nx = -nx;
+    x = String(nx);
+    pantalla.innerHTML = x;
+}
+
+function invert() {
+    nx = Number(x);
+    nx = (1 / nx);
+    x = String(nx);
+    pantalla.innerHTML = x;
+
+}
+
 function raizc() {
     x = Math.sqrt(x);
     pantalla.innerHTML = x;
@@ -80,7 +96,7 @@ function retro() {
     br = x.substr(cifras - 1, cifras); //info del ultimo caracter
     x = x.substr(0, cifras - 1); // quitamos el ultimo caracter
     if (x == "") {
-        x == "0";
+        x = "0";
     }
     if (br == ".") {
         coma = 0;
@@ -92,7 +108,7 @@ function borradoParcial() {
     pantalla.innerHTML = 0;
     x = "0";
     coma = 0;
-    
+
 }
 
 function borradoTotal() {
@@ -102,4 +118,48 @@ function borradoTotal() {
     coma = 0;
     ni = 0;
     op = "no";
+}
+
+function teclado(evnt) {
+    evento = evnt || window.event;
+    key = evento.keyCode;
+    console.log(key);
+
+    if (key > 47 && key < 58) {
+        p = key - 48;       //Buscar numero a mostrar
+        p = String(p);
+        numero(p);
+    }
+    if (key > 95 && key < 106) {
+        p = key - 96;       //Buscar numero a mostrar
+        p = String(p);      // convertir en string
+        numero(p);          // mostrar en pantalla
+    }
+    if (key == 110 || key == 190) {
+        numero('.');
+    }
+    if (key == 106) {
+        operar('*');
+    }
+    if (key == 107 || key == 187) {
+        operar('+');
+    }
+    if (key == 109 || key == 189) {
+        operar('-');
+    }
+    if (key == 111) {
+        operar('/');
+    }
+    if (key == 32 || key == 13) {
+        igualar();
+    }
+    if (key == 46) {
+        borradoTotal();
+    }
+    if (key == 36) {
+        borradoParcial();
+    }
+    if (key == 8) {
+        retro();
+    }
 }
