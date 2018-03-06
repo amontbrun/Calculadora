@@ -14,23 +14,87 @@
             cursor: pointer;
             background-color: chocolate;
         }
+        .box2 {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            cursor: pointer;
+            border:2px black dashed;
+            background-color: rgb(112, 14, 104);
+        }
     </style>
 </head>
 
 <body>
-    <div id="box1" name="box1" class="box"></div>
-    <div id="box2" name="box2" class="box"></div>
+    <div id="box1" name="box1" class="box">Saludos desde caja 1 <h1>Jueves</h1></div>
+    <div id="box2" name="box2" class="box">Andres</div>
     <div id="box3" name="box3" class="box"></div>
+
     <script src="jquery-3.3.1.min.js"></script>
     <script>
-        console.log($)
-        var box = document.getElementsById('box');
-        box1.style.backgroud
-        var box = document.getElementsByClassName('box');
-        box[1].style.backgroud = "red";
+        console.log($.fn.jquery);
 
-    // var box = document.getElementsByName("box");
-    // b
+        $(document).ready(function(){
+            var titulo="Hola Mundo";
+
+            $("#box1").click(function(){
+                $("#box3").css({ "background":"blue" });
+                $("#box3").css("background","blue");
+                $("#box3").append(titulo);
+                $("#box2").text ("Hola Mundo");
+                alert($("box1").text());
+            });
+
+            $("#box2").click(function(){
+                $("#box1").css({ "position":"relative", "left":"20%" });
+                $("#box3").attr("id","box2" );
+                $("#box3").attr("id","box4" );
+            });
+
+            $("#box3").on("mouseover", function(){
+                $("#box2").css({ "position":"relative", "left":"20%" });
+            });
+
+            $("#box3").on("mouseout", function(){
+                $("#box2").css({ "position":"relative", "left":"0%" });
+            });
+
+
+        });
+        /*var box1 = document.getElementById("box1");
+        box1.style.background = "green";
+
+        var box =  document.getElementsByClassName('box');
+        box[0].style.background = "red";
+
+        var box = document.getElementsByName("box");
+        box[1].style.border = "2px #333 solid";*/
+
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+        function prueba() {
+            box1.addEventListener("click", function (evt) {
+                //box3.style.background = "blue";
+            });
+
+            box2.addEventListener("click", function (evt) {
+                //box1.style.position = "relative";
+                //box1.style.left = "20%";
+            });
+
+            box3.addEventListener("mouseover", function (evt) {
+                //box2.style.position = "relative";
+                //box2.style.left = "20%";
+            });
+
+            box3.addEventListener("mouseout", function (evt) {
+                //box2.style.position = "relative";
+                //box2.style.left = "0%";
+            });
+        }
+
+        prueba();
 
     </script>
 </body>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=form, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" id="num1" name="num1" placeholder="0"><br>
+        <input type="text" id="num2" name="num2" placeholder="0"><br>
+        <input type="text" id="resultado" name="resultado" placeholder="0">
+        <input type="button" value="sumar">
+
+    </form>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var calcular = (num1, num2) => num1 + num2;
+            $("[type=button]").on("click", function () {
+                var num1 = Number($("#num1").val());
+                var num2 = parseInt($("#num2").val());
+                var res=calcular(num1,num2);
+                $("#resultado").val(res);
+            })
+        });
+    </script>
+</body>
+
+</html>

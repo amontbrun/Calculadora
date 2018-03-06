@@ -45,7 +45,8 @@ function operar(s) {
     ni = x; // poner en espera el 1er numero para poder escribir el nuevo numero
     op = s; // guardamos el tipo de operacion
     xi = 1; //inicializamos la pantalla
-    pantallaHist.innerHTML = ni; // mostramos en pantalla dicho numero
+    pantallaHist.innerHTML = ni+op; // mostramos en pantalla dicho numero
+    pantalla.innerHTML = 0; // mostramos en pantalla dicho numero
 }
 
 function igualar() {
